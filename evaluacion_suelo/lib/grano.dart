@@ -1,52 +1,36 @@
 import 'package:flutter/material.dart';
+import 'plantilla.dart'; // ✅ Importamos la plantilla
 
 class GranoPage extends StatelessWidget {
   const GranoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Gestión de Granos'),
-        backgroundColor: const Color(0xFF4CAF50), // Verde oscuro
-      ),
-      body: Container(
-        padding: const EdgeInsets.all(16.0),
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFFA5D6A7), // Verde claro
-              Color(0xFFFFCCBC), // Café claro
-            ],
-          ),
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              // Nueva imagen circular arriba
-              const CircleAvatar(
-                radius: 80, // Tamaño de la imagen circular
-                backgroundImage: AssetImage(
-                  'assets/images/grano.jpg', // Cambia la ruta según tu imagen
-                ),
+    return Plantilla(
+      title: 'Gestión de Granos', // ✅ Título de la página
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Nueva imagen circular arriba
+            const CircleAvatar(
+              radius: 80, // Tamaño de la imagen circular
+              backgroundImage: AssetImage(
+                'assets/images/grano.jpg', // Ruta de la imagen
               ),
-              const SizedBox(
-                  height: 20), // Separación entre la imagen y el texto
-              const Text(
-                'Información de la semilla de cultivo',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
+            ),
+            const SizedBox(height: 20), // Separación entre la imagen y el texto
+            const Text(
+              'Información de la semilla de cultivo',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
               ),
-              const SizedBox(
-                  height: 20), // Separación entre el título y el formulario
-              _buildForm(context),
-            ],
-          ),
+            ),
+            const SizedBox(
+                height: 20), // Separación entre el título y el formulario
+            _buildForm(context),
+          ],
         ),
       ),
     );
